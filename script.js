@@ -16,10 +16,7 @@ const checkText = () => {
     textToReverse = inputValue.split("").reverse().join("");
     // checkt ob Palindrom 
     textToReverse === inputValue ? isPalindrome = true : isPalindrome = false
-    inputValue ? showPalindrome.innerHTML = `<p id="palindromeText"><span class="paliSpan">${textToCheck}</span>${isPalindrome ? " is a palindrome":" is not a palindrome"}</p>`: alert("Please input a value")
-
-    
-
+    inputValue ? showPalindrome.innerHTML = `<p id="palindromeText"><span class="paliSpan">${textToCheck}</span>${isPalindrome ? " is a palindrome":" is not a palindrome"}</p>`: alert("Please input a value");
 }
 
 
