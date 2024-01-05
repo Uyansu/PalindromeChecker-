@@ -1,26 +1,25 @@
 const form = document.getElementById('inputArea');
 const input = document.getElementById('text-input');
-const showPalindrome = document.getElementById("showIfPalindrome");
+const showPalindrome = document.getElementById("result");
 const checkButton = document.getElementById("check-btn");
 let isPalindrome = false;
 let textToCheck = "";
 
-// hinzufügen von element ob palindrom oder nicht, in der funktion ausführen
+
 
 const checkText = () => {
     let inputValue = input.value;
     let textToReverse = inputValue;
     textToCheck = inputValue;
-    inputValue = inputValue.replace(/\s+/g,"")
-    textToReverse = textToReverse.split("").reverse();
-    textToReverse = textToReverse.filter(e => e.trim() !== "").join("");
-    if(textToReverse === inputValue){
-        isPalindrome = true;
-        console.log("hat geklappt")
-    } else {
-        isPalindrome = false; 
-        console.log("hat nicht geklappt")
-    }
+    // wandelt string in ein Array von Zeichen um, kehrt die Reihenfolge der Zeichen um, entfernt Leerzeichen und fügt Sie dann in ein String zusammen 
+    inputValue = inputValue.replace(/[\W_]/g, "").toLowerCase();
+    textToReverse = inputValue.split("").reverse().join("");
+    // checkt ob Palindrom 
+    textToReverse === inputValue ? isPalindrome = true : isPalindrome = false
+    inputValue ? showPalindrome.innerHTML = `<p id="palindromeText"><span class="paliSpan">${textToCheck}</span>${isPalindrome ? " is a palindrome":" is not a palindrome"}</p>`: alert("Please input a value")
+
+    
+
 }
 
 
